@@ -1,0 +1,206 @@
+<mxfile host="65bd71144e">
+    <diagram name="Kiến trúc Chi tiết AI Agent CRM" id="d">
+        <mxGraphModel dx="662" dy="386" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1703" pageHeight="614" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="root" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;fontColor=#1A1A1A;fontSize=11;fontStyle=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="17" y="73" width="1623" height="494" as="geometry"/>
+                </mxCell>
+                <mxCell id="users" value="Người dùng" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;fontColor=#1A1A1A;fontSize=11;fontStyle=1;verticalAlign=top;" parent="root" vertex="1">
+                    <mxGeometry x="24" y="38" width="208" height="432" as="geometry"/>
+                </mxCell>
+                <mxCell id="rm_user" value="Relationship Manager (RM)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="users" vertex="1">
+                    <mxGeometry x="24" y="60" width="160" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="frontend_layer" value="Frontend (Client)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" parent="root" vertex="1">
+                    <mxGeometry x="292" y="38" width="195" height="432" as="geometry"/>
+                </mxCell>
+                <mxCell id="web_ui" value="Web Chat Interface (React/Vite)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="frontend_layer" vertex="1">
+                    <mxGeometry x="24" y="60" width="147" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="quick_actions" value="Nút thao tác nhanh (Quick Actions)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="frontend_layer" vertex="1">
+                    <mxGeometry x="24" y="152" width="147" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="backend_layer" value="Backend Orchestrator (FastAPI)" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#879196;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#879196;dashed=0;strokeColor=#8C4FFF;" parent="root" vertex="1">
+                    <mxGeometry x="547" y="38" width="469" height="432" as="geometry"/>
+                </mxCell>
+                <mxCell id="langchain_router" value="LangChain/LangGraph (Điều phối logic)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="backend_layer" vertex="1">
+                    <mxGeometry x="158" y="60" width="153" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="ai_core" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;fontColor=#1A1A1A;fontSize=11;fontStyle=1;verticalAlign=top;" parent="backend_layer" vertex="1">
+                    <mxGeometry x="24" y="162" width="421" height="144" as="geometry"/>
+                </mxCell>
+                <mxCell id="llm_engine" value="LLM Engine (OpenAI/Claude)" style="sketch=0;html=1;outlineConnect=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#232F3E;aspect=fixed;shape=image;image=data:image/png,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAABAKADAAQAAAABAAABAAAAAABEIjhzAAAc/klEQVR4Ae2dBbTcNreFlTZlhhRSZmZmZqa0XWVmZmZmZuZ2lZmZmZnSNoWUmf3O1v/kyprjmXtv1HQ02lorsUeWNdJ3xtuCI91eH37yRWEYSIAEsiQwRJa1ZqVJgAQsAQoAfwgkkDEBCkDGxmfVSYACwN8ACWRMgAKQsfFZdRLoXYdgwr596i4xngRIIDEC/QcMVEvMFoCKhZEkkAcBCkAedmYtSUAlQAFQsTCSBPIgQAHIw86sJQmoBCgAKhZGkkAeBCgAediZtSQBlQAFQMXCSBLIgwAFIA87s5YkoBKgAKhYGEkCeRCgAORhZ9aSBFQCFAAVCyNJIA8CFIA87MxakoBKgAKgYmEkCeRBgAKQh51ZSxJQCVAAVCyMJIE8CFAA8rAza0kCKgEKgIqFkSSQBwEKQB52Zi1JQCVAAVCxMJIE8iBAAcjDzqwlCagEKAAqFkaSQB4EKAB52Jm1JAGVAAVAxcJIEsiDAAUgDzuzliSgEqAAqFgYSQJ5EKAA5GFn1pIEVAIUABULI0kgDwIUgDzszFqSgEqAAqBiYSQJ5EGAApCHnVlLElAJUABULIwkgTwIUADysDNrSQIqAQqAioWRJJAHAQpAHnZmLUlAJUABULEwkgTyIEAByMPOrCUJqAQoACoWRpJAHgQoAHnYmbUkAZUABUDFwkgSyIMABSAPO7OWJKASoACoWBhJAnkQoADkYWfWkgRUAhQAFQsjSSAPAhSAPOzMWpKASoACoGJhJAnkQYACkIedWUsSUAlQAFQsjCSBPAhQAPKwM2tJAioBCoCKhZEkkAcBCkAedmYtSUAlQAFQsTCSBPIgQAHIw86sJQmoBCgAKhZGkkAeBCgAediZtSQBlQAFQMXCSBLIgwAFIA87s5YkoBKgAKhYGEkCeRCgAORhZ9aSBFQCFAAVCyNJIA8CFIA87MxakoBKgAKgYmEkCeRBgAKQh51ZSxJQCVAAVCyMJIE8CFAA8rAza0kCKgEKgIqFkSSQBwEKQB52Zi1JQCVAAVCxMJIE8iBAAcjDzqwlCagEKAAqFkaSQB4EKAB52Jm1JAGVAAVAxcJIEsiDAAUgDzuzliSgEqAAqFgYSQJ5EKAA5GFn1pIEVAIUABULI0kgDwIUgDzszFqSgEqAAqBiYSQJ5EGAApCHnVlLElAJUABULIwkgTwIUADysDNrSQIqAQqAioWRJJAHAQpAHnZmLUlAJUABULEwkgTyIEAByMPOrCUJqAQoACoWRpJAHgQoAHnYmbUkAZUABUDFwkgSyIMABSAPO7OWJKASoACoWBhJAnkQoADkYWfWkgRUAhQAFQsjSSAPAhSAPOzMWpKASoACoGJhJAnkQYACkIedWUsSUAlQAFQsjCSBPAhQAPKwM2tJAioBCoCKhZEkkAcBCkAedmYtSUAlQAFQsTCSBPIg0LuTq/nNN9+YBx980Dz99NPm888/N7///rsZc8wxzfTTT2+WWGIJM8EEE3Ry9Vk3EmhJoCMF4P333zcHHXSQueqqq8yvv/6qQujVq5dZfPHFzYEHHmjmnXdeNQ0jSaDTCXRcF+CUU04x0003nbnoootqH34YtSgKc/fdd5v555/fbL/99uaPP/7odFuzfiTQQKDXh598UTTESsSEffto0W0dhwcZAuDCiCOOaPr162ff9JNNNpkZcsghzUcffWQeeughc/nll9tugUu75JJLmosvvtgMGDDA/PTTT2a44YYzU0wxhRl55JFdEh5JIFkC/QcMVMveMQJw5JFHmr322qus5EYbbWSOPvpo2+cvI72TX375xRx11FHmsMMOM3/++ad35Z9TdBOmnXZas/baa5stttiiNq9/7uAZCbQngToB6IguwEsvvWT222+/kvyJJ55ozj///C49sL171w+DoJvw6quvmn333degBXHcccfZrkP5RTwhgcQJdEQLAM139OcRdthhBwMBaBauvPJKs/vuu9vugJ9ummmmMTPPPLMZddRRzbfffmuef/5588Ybb/hJzAorrGCuvvpqM+yww1bi+YEE2plAXQsgeQHAGxrTegh9+/Y1b7/9thl++OFVWzz77LNWIB599NHyOpr566yzju0+oLkfhtdee812EzBm4MKyyy5rbrzxRtOs9eDS8kgC7UCgTgCS7AJgxB5NfIzgzzTTTCXfLbfcUn344QOwySabmDnnnNP4D/8888xjnnzySXPJJZfYvn6ZkXcCUbjsssvMtddeawcGcem2224zRxxx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;" parent="ai_core" vertex="1">
+                    <mxGeometry x="100" y="38" width="48" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="memory" value="Chat Memory (Lịch sử hội thoại)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="ai_core" vertex="1">
+                    <mxGeometry x="244" y="48" width="153" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="mcp_layer" value="Data Integration Layer" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_ecs;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" parent="root" vertex="1">
+                    <mxGeometry x="1076" y="38" width="256" height="432" as="geometry"/>
+                </mxCell>
+                <mxCell id="mcp_server" value="MCP Server (FastMCP) Quản lý Context" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="mcp_layer" vertex="1">
+                    <mxGeometry x="48" y="60" width="160" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="mcp_tools" value="MCP Tools (Công cụ)" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_subnet;strokeColor=#879196;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#879196;dashed=0;fillColor=light-dark(#eef5e6,#1a2410);strokeColor=#7AA116;" parent="mcp_layer" vertex="1">
+                    <mxGeometry x="24" y="152" width="208" height="256" as="geometry"/>
+                </mxCell>
+                <mxCell id="tool_profile" value="get_customer_profile" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="mcp_tools" vertex="1">
+                    <mxGeometry x="24" y="60" width="160" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="tool_opps" value="get_opportunities" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="mcp_tools" vertex="1">
+                    <mxGeometry x="34" y="124" width="140" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="tool_email" value="draft_email" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="mcp_tools" vertex="1">
+                    <mxGeometry x="44" y="188" width="120" height="44" as="geometry"/>
+                </mxCell>
+                <mxCell id="bank_systems" value="Bank A Systems (Sandbox)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_corporate_data_center;strokeColor=#7D8998;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#5A6C86;dashed=0;" parent="root" vertex="1">
+                    <mxGeometry x="1392" y="38" width="207" height="432" as="geometry"/>
+                </mxCell>
+                <mxCell id="crm_customers" value="Hồ sơ Khách hàng (Sandbox DB)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="bank_systems" vertex="1">
+                    <mxGeometry x="37" y="60" width="134" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="crm_opps" value="Cơ hội Bán hàng (Cross-sell DB)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A6B7B;fontColor=#1A1A1A;fontSize=11;fontStyle=0;verticalAlign=middle;" parent="bank_systems" vertex="1">
+                    <mxGeometry x="40" y="152" width="127" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed1" value="Nhập câu hỏi bằng văn bản" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rm_user" target="web_ui" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed2" value="Click thao tác có sẵn" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="rm_user" target="quick_actions" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="302" y="211"/>
+                            <mxPoint x="302" y="291"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed3" value="Kích hoạt lệnh" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="quick_actions" target="web_ui" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed4" value="Gửi tin nhắn (REST API POST /chat)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=1;exitY=0.333;exitDx=0;exitDy=0;entryX=0;entryY=0.333;entryDx=0;entryDy=0;" parent="1" source="web_ui" target="langchain_router" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed5" value="Truy xuất lịch sử" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=1;exitY=0.667;exitDx=0;exitDy=0;entryX=0.3333333333333333;entryY=0;entryDx=0;entryDy=0;" parent="1" source="langchain_router" target="memory" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="922" y="209"/>
+                            <mxPoint x="922" y="238"/>
+                            <mxPoint x="906" y="238"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed6" value="Trả ngữ cảnh cũ" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0.6666666666666666;exitY=0;exitDx=0;exitDy=0;entryX=0.8333333333333334;entryY=1;entryDx=0;entryDy=0;" parent="1" source="memory" target="langchain_router" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="957" y="254"/>
+                            <mxPoint x="873" y="254"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed7" value="Truyền Prompt + Context" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0.16666666666666666;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="langchain_router" target="llm_engine" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="771" y="235"/>
+                            <mxPoint x="723" y="235"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed8" value="Quyết định gọi Tool" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.3333333333333333;entryY=1;entryDx=0;entryDy=0;" parent="1" source="llm_engine" target="langchain_router" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="735" y="251"/>
+                            <mxPoint x="796" y="251"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed9" value="Yêu cầu Tool qua chuẩn MCP" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=1;exitY=0.333;exitDx=0;exitDy=0;entryX=0;entryY=0.333;entryDx=0;entryDy=0;" parent="1" source="langchain_router" target="mcp_server" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed10" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="mcp_server" target="tool_profile" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1196" y="236"/>
+                            <mxPoint x="1244" y="236"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed11" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="mcp_server" target="tool_opps" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1140" y="199"/>
+                            <mxPoint x="1140" y="406"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed12" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;exitX=1;exitY=0.6;exitDx=0;exitDy=0;entryX=1;entryY=0.333;entryDx=0;entryDy=0;" parent="1" source="mcp_server" target="tool_email" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1348" y="205"/>
+                            <mxPoint x="1348" y="463"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed13" value="HTTP GET /customers" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=1;exitY=0.333;exitDx=0;exitDy=0;entryX=0;entryY=0.333;entryDx=0;entryDy=0;" parent="1" source="tool_profile" target="crm_customers" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1394" y="335"/>
+                            <mxPoint x="1394" y="189"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed14" value="HTTP GET /opportunities" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=1;exitY=0.333;exitDx=0;exitDy=0;entryX=0;entryY=0.333;entryDx=0;entryDy=0;" parent="1" source="tool_opps" target="crm_opps" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1378" y="399"/>
+                            <mxPoint x="1378" y="281"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed15" value="Data JSON" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0;exitY=0.667;exitDx=0;exitDy=0;entryX=1;entryY=0.667;entryDx=0;entryDy=0;" parent="1" source="crm_customers" target="tool_profile" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1410" y="209"/>
+                            <mxPoint x="1410" y="349"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed16" value="Data JSON" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0;exitY=0.667;exitDx=0;exitDy=0;entryX=1;entryY=0.667;entryDx=0;entryDy=0;" parent="1" source="crm_opps" target="tool_opps" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1426" y="301"/>
+                            <mxPoint x="1426" y="413"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed17" value="Bản nháp" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0;exitY=0.667;exitDx=0;exitDy=0;entryX=0;entryY=0.8;entryDx=0;entryDy=0;" parent="1" source="tool_email" target="mcp_server" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1116" y="477"/>
+                            <mxPoint x="1116" y="218"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed18" value="Trả kết quả Tool" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0;exitY=0.667;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="mcp_server" target="langchain_router" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1080" y="209"/>
+                            <mxPoint x="1080" y="199"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed19" value="Sinh phản hồi cuối cùng" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="llm_engine" target="langchain_router" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="747" y="267"/>
+                            <mxPoint x="822" y="267"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed20" value="Trả lời chat" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;jettySize=auto;orthogonalLoop=1;fontSize=10;fontColor=light-dark(#1B2733,#CFE0F0);strokeColor=light-dark(#2D6A9F,#5B9BD5);strokeWidth=2;labelBackgroundColor=light-dark(#FFFFFF,#0B0F14);exitX=0;exitY=0.667;exitDx=0;exitDy=0;entryX=1;entryY=0.667;entryDx=0;entryDy=0;" parent="1" source="langchain_router" target="web_ui" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
