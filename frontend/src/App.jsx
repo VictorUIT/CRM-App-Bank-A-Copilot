@@ -18,6 +18,7 @@ function App() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
@@ -37,14 +38,14 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input })
       });
-      
+
       const data = await response.json();
-      
+
       setMessages(prev => [...prev, {
         id: Date.now() + 1,
         role: 'agent',
@@ -114,7 +115,7 @@ function App() {
               </div>
             </div>
           ))}
-          
+
           {isLoading && (
             <div className="message agent">
               <div className="message-content">
@@ -135,7 +136,7 @@ function App() {
             <button className="action-btn" onClick={() => handleQuickAction('Khách KH001 có cơ hội mua chéo sản phẩm nào không?')}>Cơ hội mua chéo KH001</button>
             <button className="action-btn" onClick={() => handleQuickAction('Soạn email giới thiệu thẻ tín dụng cho KH002.')}>Soạn email</button>
           </div>
-          
+
           <div className="input-wrapper" style={{ marginTop: '0.75rem' }}>
             <textarea
               className="chat-input"
@@ -145,8 +146,8 @@ function App() {
               placeholder="Nhập yêu cầu bằng tiếng Việt tự nhiên (VD: Hãy soạn email cho khách hàng...)"
               rows={1}
             />
-            <button 
-              className="send-button" 
+            <button
+              className="send-button"
               onClick={handleSend}
               disabled={!input.trim() || isLoading}
             >
