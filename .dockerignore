@@ -1,0 +1,15 @@
+backend/venv/
+backend/__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
+*.drawio
+*.pdf
+*.mjs
+cloudflared.exe
+start_tunnel.ps1
+tunnel.log
+frontend/
+node_modules/
