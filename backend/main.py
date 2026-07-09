@@ -32,9 +32,13 @@ class ChatRequest(BaseModel):
 chat_history = []
 
 # Cấu hình để chạy MCP Server như một tiến trình con
+# Dùng đường dẫn tuyệt đối để hoạt động đúng trên cả local lẫn Railway
+_backend_dir = os.path.dirname(os.path.abspath(__file__))
+_mcp_server_path = os.path.join(_backend_dir, "..", "mcp-server", "main.py")
+
 server_params = StdioServerParameters(
     command="python",
-    args=["../mcp-server/main.py"]
+    args=[_mcp_server_path]
 )
 
 @app.post("/api/chat")
@@ -110,4 +114,5 @@ Lưu ý: Luôn gọi tool nếu câu hỏi liên quan đến khách hàng, khôn
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
