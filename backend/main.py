@@ -110,7 +110,15 @@ Lưu ý: Luôn gọi tool nếu câu hỏi liên quan đến khách hàng, khôn
     except Exception as e:
         import traceback
         traceback.print_exc()
-        return {"reply": f"Lỗi hệ thống AI: {str(e)}", "context": "Error"}
+        # Unwrap ExceptionGroup (Python 3.11+) to show actual error
+        actual_error = e
+        if hasattr(e, 'exceptions') and e.exceptions:
+            actual_error = e.exceptions[0]
+            # Unwrap nested ExceptionGroups
+            while hasattr(actual_error, 'exceptions') and actual_error.exceptions:
+                actual_error = actual_error.exceptions[0]
+        error_msg = str(actual_error)
+        return {"reply": f"Lỗi hệ thống AI: {error_msg}", "context": "Error"}
 
 if __name__ == "__main__":
     import uvicorn
