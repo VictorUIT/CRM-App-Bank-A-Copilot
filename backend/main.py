@@ -41,6 +41,20 @@ server_params = StdioServerParameters(
     args=[_mcp_server_path]
 )
 
+@app.get("/health")
+async def health_check():
+    base_url = os.getenv("OPENAI_API_BASE", "NOT SET")
+    has_key = bool(os.getenv("OPENAI_API_KEY"))
+    mcp_exists = os.path.exists(_mcp_server_path)
+    return {
+        "status": "ok",
+        "llm_base_url": base_url,
+        "has_api_key": has_key,
+        "mcp_server_path": _mcp_server_path,
+        "mcp_server_exists": mcp_exists,
+    }
+
+
 @app.post("/api/chat")
 async def chat_endpoint(request: ChatRequest):
     global chat_history
