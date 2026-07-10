@@ -13,7 +13,8 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langgraph.prebuilt import create_react_agent
 from langchain_core.tools import tool
 
-load_dotenv(override=True)
+# load_dotenv KHÔNG dùng override=True để Railway env vars được ưu tiên hơn .env file
+load_dotenv()
 
 app = FastAPI()
 

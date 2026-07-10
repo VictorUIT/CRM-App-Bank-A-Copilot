@@ -44,7 +44,9 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "Railway da duoc cap nhat!" -ForegroundColor Green
     Write-Host "OPENAI_API_BASE = $apiBase" -ForegroundColor White
     Write-Host ""
-    Write-Host "Railway se tu dong redeploy trong ~2 phut." -ForegroundColor Cyan
+    Write-Host "Dang trigger Railway redeploy..." -ForegroundColor Yellow
+    railway redeploy --service CRM-App-Bank-A-Copilot --yes 2>&1 | Out-Null
+    Write-Host "Done! Railway se online trong ~2-3 phut." -ForegroundColor Cyan
 } else {
     Write-Host "Loi khi update Railway: $result" -ForegroundColor Red
     Write-Host "Hay cap nhat thu cong tren Railway Dashboard:" -ForegroundColor Yellow
